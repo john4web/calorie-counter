@@ -13,16 +13,15 @@ class SettingsActivity : Activity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_settings)
-
+        val spdao: ValueDAO = SharedPreferencesValueDAOImpl(this)
         Log.d("ABC", "Settings Created")
 
 
-        //get current value from
-            val xsp: SharedPreferences = getSharedPreferences(SHARED_PREF_FILE_ID, MODE_PRIVATE)
-            val storedMaxCalories: Int = xsp.getInt(SHARED_PREF_VALUE_KEY_MAXCAL, 1000)
-          val storedMaxLitres: Int = xsp.getInt(SHARED_PREF_VALUE_KEY_MAXLIT, 3)
-         activity_settings_input_kcal.setText(storedMaxCalories.toString())
-         activity_settings_input_litres.setText(storedMaxLitres.toString())
+        //get current value from db
+        val value1: Value = spdao.readValue(SHARED_PREF_VALUE_KEY_MAXCAL)
+        val value2: Value = spdao.readValue(SHARED_PREF_VALUE_KEY_MAXLIT)
+         activity_settings_input_kcal.setText(value1.value)
+         activity_settings_input_litres.setText(value2.value)
 
 
 
@@ -30,45 +29,25 @@ class SettingsActivity : Activity() {
         //Setting OnClick-Listeners
         activity_settings_button_save.setOnClickListener {
 
-            val kcalInputNumber: Int = activity_settings_input_kcal.text.toString().toInt()
-            val litresInputNumber: Int = activity_settings_input_litres.text.toString().toInt()
+            val kcalInputNumber: String = activity_settings_input_kcal.text.toString()
+            val litresInputNumber: String = activity_settings_input_litres.text.toString()
 
-            val sp: SharedPreferences = getSharedPreferences(SHARED_PREF_FILE_ID, MODE_PRIVATE)
-            val edt: SharedPreferences.Editor = sp.edit()
-            edt.putInt(SHARED_PREF_VALUE_KEY_MAXCAL, kcalInputNumber)
-            edt.putInt(SHARED_PREF_VALUE_KEY_MAXLIT, litresInputNumber)
+            val value1: Value = Value()
+            value1.key = SHARED_PREF_VALUE_KEY_MAXCAL
+            value1.value = kcalInputNumber
 
-            //Write the typed in number into the XML-File stored on the Smartphone-Harddrive
-            edt.commit()
+
+            val value2: Value = Value()
+            value2.key = SHARED_PREF_VALUE_KEY_MAXLIT
+            value2.value = litresInputNumber
+
+            spdao.saveValue(value1)
+            spdao.saveValue(value2)
 
             //Close the Activity
             finish()
         }
 
-
-
-
-
     }
-
-
-
-
-    override fun onSaveInstanceState(outState: Bundle) {
-        super.onSaveInstanceState(outState)
-
-        Log.d("ABC", "Settings SAVED")
-    }
-
-    override fun onRestoreInstanceState(savedInstanceState: Bundle) {
-        super.onRestoreInstanceState(savedInstanceState)
-
-        Log.d("ABC", "Settings RESTORED")
-
-    }
-
-
-
-
 
 }

@@ -7,20 +7,19 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.activity_settings.*
 
 const val TAG: String = "Main-Activity"
 
-const val SHARED_PREF_FILE_ID = "MySharedPreferences"
+const val SHARED_PREF_FILE_ID_VALUES = "VALUES"
 const val SHARED_PREF_VALUE_KEY_MAXCAL = "MaxCalories"
 const val SHARED_PREF_VALUE_KEY_MAXLIT = "MaxLitres"
 
 class MainActivity : Activity(), View.OnClickListener, SharedPreferences.OnSharedPreferenceChangeListener {
-
+    val spdao: ValueDAO = SharedPreferencesValueDAOImpl(this)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
-
 
 
         //Setting OnClick-Listeners
@@ -29,9 +28,14 @@ class MainActivity : Activity(), View.OnClickListener, SharedPreferences.OnShare
         activity_main_button_settings.setOnClickListener(this)
         activity_main_button_storedFood.setOnClickListener(this)
 
-
-        val sp: SharedPreferences = getSharedPreferences(SHARED_PREF_FILE_ID, MODE_PRIVATE)
+        val sp: SharedPreferences = getSharedPreferences(SHARED_PREF_FILE_ID_VALUES, MODE_PRIVATE)
         sp.registerOnSharedPreferenceChangeListener(this)
+
+        //get current value from db
+        val val1: Value = spdao.readValue(SHARED_PREF_VALUE_KEY_MAXCAL)
+        val val2: Value = spdao.readValue(SHARED_PREF_VALUE_KEY_MAXLIT)
+        activity_main_textview_maxCalories.text = val1.value
+        activity_main_textview_maxLitres.text = val2.value
 
     }
 
@@ -75,6 +79,7 @@ class MainActivity : Activity(), View.OnClickListener, SharedPreferences.OnShare
              val storedMaxCalories: Int? = sharedPreferences?.getInt(SHARED_PREF_VALUE_KEY_MAXCAL, 1000)
             //set changed value to textview in mainactivity
             activity_main_textview_maxCalories.text = storedMaxCalories.toString()
+
         }
 
         if(key == SHARED_PREF_VALUE_KEY_MAXLIT){ //if Max-Litres-Value has changed in the XML-File

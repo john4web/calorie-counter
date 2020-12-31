@@ -19,11 +19,10 @@
         android:id="@+id/activity_main_button_drink"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="40dp"
+        android:layout_marginEnd="12dp"
         android:text="Trinken"
-        app:layout_constraintBottom_toTopOf="@+id/activity_main_button_storedFood"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintBottom_toBottomOf="@+id/activity_main_textview_maxCalories"
+        app:layout_constraintEnd_toStartOf="@+id/activity_main_textview_maxCalories" />
 
     <Button
         android:id="@+id/activity_main_button_settings"
@@ -49,19 +48,19 @@
         android:id="@+id/activity_main_textview_maxLitres"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="7dp"
+        android:layout_marginEnd="29dp"
+        android:layout_marginBottom="10dp"
         android:text="3"
-        app:layout_constraintBottom_toTopOf="@+id/activity_main_button_eat"
-        app:layout_constraintEnd_toEndOf="@+id/activity_main_textview_maxCalories" />
+        app:layout_constraintBottom_toTopOf="@+id/activity_main_button_storedFood"
+        app:layout_constraintEnd_toEndOf="@+id/activity_main_button_storedFood" />
 
     <TextView
         android:id="@+id/activity_main_textview_maxCalories"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="66dp"
-        android:layout_marginEnd="89dp"
+        android:layout_marginBottom="11dp"
         android:text="1000"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintBottom_toTopOf="@+id/activity_main_textview_maxLitres"
+        app:layout_constraintEnd_toStartOf="@+id/activity_main_textview_maxLitres" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

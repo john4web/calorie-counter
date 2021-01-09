@@ -7,25 +7,38 @@ import android.content.SharedPreferences
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
 import androidx.room.Room
 import kotlinx.android.synthetic.main.activity_main.*
 
 const val TAG: String = "Main-Activity"
-
+/*
 const val SHARED_PREF_FILE_ID_LIMITS = "LIMITS"
 const val SHARED_PREF_FILE_ID_EATSTORAGE_NAME = "EATSTORAGE-NAME"
 const val SHARED_PREF_FILE_ID_EATSTORAGE_CALORIES = "EATSTORAGE-CALORIES"
 const val SHARED_PREF_VALUE_KEY_MAXCAL = "MaxCalories"
 const val SHARED_PREF_VALUE_KEY_MAXLIT = "MaxLitres"
+*/
 
-
-class MainActivity : Activity(), View.OnClickListener, SharedPreferences.OnSharedPreferenceChangeListener {
+class MainActivity : AppCompatActivity(), ICommunicator{
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
 
+        val mainFragment = MainFragment()
+
+        //setting the initial Fragment
+        supportFragmentManager.beginTransaction().apply{
+            replace(R.id.activity_main_frameLayout, mainFragment)
+            commit()
+        }
+
+
+
+/*
         activity_main_progressBar_calories.max=1000
         activity_main_progressBar_litres.max=3
 
@@ -55,14 +68,14 @@ class MainActivity : Activity(), View.OnClickListener, SharedPreferences.OnShare
         activity_main_textview_maxLitres.text = storedMaxLitres.toString()
 
 
-
+*/
 
     }
 
 
-    override fun onClick(_v: View?) {
+   // override fun onClick(_v: View?) {
 
-
+/*
         var i: Intent? = null
 
         when(_v?.id) {
@@ -91,22 +104,29 @@ class MainActivity : Activity(), View.OnClickListener, SharedPreferences.OnShare
         i?.let{
             startActivity(i)
         } ?: Log.e(TAG,"MainActivity::onClick -> Intent was not set")
+*/
+   // }
 
-    }
-
-    override fun onSharedPreferenceChanged(sharedPreferences: SharedPreferences?, key: String?) {
-        if(key == SHARED_PREF_VALUE_KEY_MAXCAL){   //if Max-Calorie-Value has changed in the XML-File
-             val storedMaxCalories: Int? = sharedPreferences?.getInt(SHARED_PREF_VALUE_KEY_MAXCAL, 1000)
-            //set changed value to textview in mainactivity
-            activity_main_textview_maxCalories.text = storedMaxCalories.toString()
-        }
-
-        if(key == SHARED_PREF_VALUE_KEY_MAXLIT){ //if Max-Litres-Value has changed in the XML-File
-            val storedMaxLitres: Int? = sharedPreferences?.getInt(SHARED_PREF_VALUE_KEY_MAXLIT, 3)
-            //set changed value to textview in mainactivity
-            activity_main_textview_maxLitres.text = storedMaxLitres.toString()
+    override fun switchToFragment(fragment: Fragment) {
+        supportFragmentManager.beginTransaction().apply{
+            replace(R.id.activity_main_frameLayout, fragment)
+            commit()
         }
     }
 
+    /*  override fun onSharedPreferenceChanged(sharedPreferences: SharedPreferences?, key: String?) {
+          if(key == SHARED_PREF_VALUE_KEY_MAXCAL){   //if Max-Calorie-Value has changed in the XML-File
+               val storedMaxCalories: Int? = sharedPreferences?.getInt(SHARED_PREF_VALUE_KEY_MAXCAL, 1000)
+              //set changed value to textview in mainactivity
+              activity_main_textview_maxCalories.text = storedMaxCalories.toString()
+          }
+
+          if(key == SHARED_PREF_VALUE_KEY_MAXLIT){ //if Max-Litres-Value has changed in the XML-File
+              val storedMaxLitres: Int? = sharedPreferences?.getInt(SHARED_PREF_VALUE_KEY_MAXLIT, 3)
+              //set changed value to textview in mainactivity
+              activity_main_textview_maxLitres.text = storedMaxLitres.toString()
+          }
+      }
+  */
 
 }

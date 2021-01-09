@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainFragment">
+
+
+    <Button
+        android:id="@+id/activity_main_button_storedFood"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="38dp"
+        android:layout_marginTop="15dp"
+        android:text="gespeicherte Lebensmittel"
+        app:layout_constraintStart_toStartOf="@+id/activity_main_progressBar_calories"
+        app:layout_constraintTop_toBottomOf="@+id/activity_main_button_drink" />
+
+
+    <Button
+        android:id="@+id/activity_main_button_settings"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Settings"
+        app:layout_constraintBottom_toBottomOf="@+id/activity_main_progressBar_litres_heading"
+        app:layout_constraintEnd_toStartOf="@+id/activity_main_button_eat"
+        app:layout_constraintStart_toStartOf="@+id/activity_main_button_eat" />
+
+
+    <ProgressBar
+        android:id="@+id/activity_main_progressBar_calories"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="21dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="19dp"
+        android:scaleY="5"
+        app:layout_constraintEnd_toStartOf="@+id/activity_main_textView_heading"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/activity_main_button_storedFood" />
+
+    <ProgressBar
+        android:id="@+id/activity_main_progressBar_litres"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="255dp"
+        android:layout_marginEnd="266dp"
+        android:scaleY="5"
+        app:layout_constraintEnd_toStartOf="@+id/activity_main_textview_maxLitres"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <TextView
+        android:id="@+id/activity_main_textview_minLitres"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="18dp"
+        android:text="0"
+        app:layout_constraintStart_toEndOf="@+id/activity_main_button_storedFood"
+        app:layout_constraintTop_toBottomOf="@+id/activity_main_button_storedFood" />
+
+    <Button
+        android:id="@+id/activity_main_button_drink"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="7dp"
+        android:text="Trinken"
+        app:layout_constraintStart_toStartOf="@+id/activity_main_button_storedFood"
+        app:layout_constraintTop_toBottomOf="@+id/activity_main_progressBar_litres" />
+
+
+    <TextView
+        android:id="@+id/activity_main_textview_maxLitres"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="49dp"
+        android:layout_marginBottom="37dp"
+        android:text="3"
+        app:layout_constraintBottom_toTopOf="@+id/activity_main_textView_litres_unit"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/activity_main_progressBar_litres" />
+
+    <Button
+        android:id="@+id/activity_main_button_eat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:text="Essen"
+        app:layout_constraintBottom_toTopOf="@+id/activity_main_button_storedFood"
+        app:layout_constraintStart_toEndOf="@+id/activity_main_button_drink" />
+
+
+    <TextView
+        android:id="@+id/activity_main_textview_minCalories"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="12dp"
+        android:layout_marginBottom="26dp"
+        android:text="0"
+        app:layout_constraintBottom_toTopOf="@+id/activity_main_button_storedFood"
+        app:layout_constraintEnd_toEndOf="@+id/activity_main_button_storedFood" />
+
+    <TextView
+        android:id="@+id/activity_main_textview_maxCalories"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="69dp"
+        android:layout_marginTop="46dp"
+        android:text="1000"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/activity_main_textView_heading" />
+
+    <TextView
+        android:id="@+id/activity_main_textView_heading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="33dp"
+        android:text="Heutiger Tagesbedarf"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/activity_main_progressBar_calories" />
+
+
+    <TextView
+        android:id="@+id/activity_main_progressBar_calories_heading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="73dp"
+        android:layout_marginEnd="73dp"
+        android:text="kcal"
+        app:layout_constraintBottom_toBottomOf="@+id/activity_main_textView_calories_unit"
+        app:layout_constraintEnd_toStartOf="@+id/activity_main_textview_maxLitres"
+        app:layout_constraintStart_toStartOf="@+id/activity_main_button_eat"
+        app:layout_constraintTop_toBottomOf="@+id/activity_main_textView_calories_unit" />
+
+    <TextView
+        android:id="@+id/activity_main_progressBar_litres_heading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="13dp"
+        android:layout_marginBottom="4dp"
+        android:text="Wassergläser"
+        app:layout_constraintBottom_toTopOf="@+id/activity_main_textview_maxLitres"
+        app:layout_constraintStart_toEndOf="@+id/activity_main_button_settings" />
+
+
+    <TextView
+        android:id="@+id/activity_main_textView_calories_unit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="27dp"
+        android:layout_marginEnd="37dp"
+        android:text="kcal"
+        app:layout_constraintEnd_toStartOf="@+id/activity_main_progressBar_calories_heading"
+        app:layout_constraintTop_toBottomOf="@+id/activity_main_textView_heading" />
+
+    <TextView
+        android:id="@+id/activity_main_textView_litres_unit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="23dp"
+        android:layout_marginBottom="7dp"
+        android:text="l"
+        app:layout_constraintBottom_toTopOf="@+id/activity_main_button_storedFood"
+        app:layout_constraintStart_toEndOf="@+id/activity_main_button_storedFood" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -7,6 +7,7 @@ import android.content.SharedPreferences
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import androidx.room.Room
 import kotlinx.android.synthetic.main.activity_main.*
 
 const val TAG: String = "Main-Activity"
@@ -16,6 +17,7 @@ const val SHARED_PREF_FILE_ID_EATSTORAGE_NAME = "EATSTORAGE-NAME"
 const val SHARED_PREF_FILE_ID_EATSTORAGE_CALORIES = "EATSTORAGE-CALORIES"
 const val SHARED_PREF_VALUE_KEY_MAXCAL = "MaxCalories"
 const val SHARED_PREF_VALUE_KEY_MAXLIT = "MaxLitres"
+
 
 class MainActivity : Activity(), View.OnClickListener, SharedPreferences.OnSharedPreferenceChangeListener {
 

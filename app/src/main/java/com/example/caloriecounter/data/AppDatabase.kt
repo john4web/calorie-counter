@@ -1,6 +1,7 @@
 package com.example.caloriecounter.data
 
 import android.content.Context
+import android.util.Log
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
@@ -27,8 +28,14 @@ abstract class AppDatabase : RoomDatabase() {
                     context.applicationContext,
                     AppDatabase::class.java,
                     "app_database"
-                ).createFromAsset("database/myapp.db").build()
+                ).createFromAsset("database/prepopulate.db").build()
+
                 INSTANCE = instance
+                if(INSTANCE == null){
+                    Log.d("ABCDEFG", "NULL!")
+                }else{
+                    Log.d("ABCDEFG", "NOT NULL!")
+                }
                 return instance
             }
 

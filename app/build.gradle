@@ -32,7 +32,9 @@ android {
         jvmTarget = '1.8'
     }
 }
+
 apply plugin: 'kotlin-kapt'
+
 dependencies {
 
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"

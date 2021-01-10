@@ -1,10 +1,8 @@
 package com.example.caloriecounter
 
 import android.app.Activity
-import android.content.SharedPreferences
 import android.os.Bundle
 import kotlinx.android.synthetic.main.activity_eat.*
-import kotlinx.android.synthetic.main.activity_settings.*
 
 class EatActivity : Activity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -13,14 +11,14 @@ class EatActivity : Activity() {
 
 
 
-        activity_eat_button_eatNow.setOnClickListener {
+        fragment_eat_button_eatNow.setOnClickListener {
 
 
             finish()
 
         }
 
-        activity_eat_button_cancel.setOnClickListener {
+        fragment_eat_button_cancel.setOnClickListener {
 
 
             finish()

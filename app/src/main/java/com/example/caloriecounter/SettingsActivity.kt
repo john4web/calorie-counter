@@ -1,10 +1,8 @@
 package com.example.caloriecounter
 
 import android.app.Activity
-import android.content.SharedPreferences
 import android.os.Bundle
 import android.util.Log
-import androidx.lifecycle.ViewModelProvider
 import com.example.caloriecounter.data.MaxValue
 import com.example.caloriecounter.data.MaxValueViewModel
 import kotlinx.android.synthetic.main.activity_settings.*
@@ -31,7 +29,7 @@ class SettingsActivity : Activity() {
 
 
         //Setting OnClick-Listeners
-        activity_settings_button_save.setOnClickListener {
+        fragment_settings_button_save.setOnClickListener {
 /*
             val kcalInputNumber: Int = activity_settings_input_kcal.text.toString().toInt()
             val litresInputNumber: Int = activity_settings_input_litres.text.toString().toInt()
@@ -59,8 +57,8 @@ class SettingsActivity : Activity() {
 
 
     private fun insertDataIntoDatabase(){
-        val maxcal = activity_settings_input_kcal.text.toString()
-        val maxlit = activity_settings_input_litres.text.toString()
+        val maxcal = fragment_settings_input_kcal.text.toString()
+        val maxlit = fragment_settings_input_litres.text.toString()
 
         if(inputCheck(maxcal, maxlit)){
 

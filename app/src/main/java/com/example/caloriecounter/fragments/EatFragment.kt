@@ -1,14 +1,15 @@
-package com.example.caloriecounter
+package com.example.caloriecounter.fragments
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import kotlinx.android.synthetic.main.fragment_main.*
+import com.example.caloriecounter.ICommunicator
+import com.example.caloriecounter.R
+import kotlinx.android.synthetic.main.fragment_eat.*
 
-
-class MainFragment : Fragment() {
+class EatFragment : Fragment() {
 
     private lateinit var communicator: ICommunicator
 
@@ -17,10 +18,7 @@ class MainFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_main, container, false)
-
-
-
+        return inflater.inflate(R.layout.fragment_eat, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -28,10 +26,16 @@ class MainFragment : Fragment() {
 
         communicator = activity as ICommunicator
 
-        activity_main_button_settings.setOnClickListener{
-            communicator.switchToFragment(SettingsFragment())
+        fragment_eat_button_eatNow.setOnClickListener{
+            communicator.switchToFragment(MainFragment())
+        }
+
+        fragment_eat_button_cancel.setOnClickListener{
+            communicator.switchToFragment(MainFragment())
         }
 
     }
+
+
 
 }

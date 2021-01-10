@@ -1,9 +1,7 @@
 package com.example.caloriecounter
 
 import android.app.Activity
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import kotlinx.android.synthetic.main.activity_eat.*
 import kotlinx.android.synthetic.main.activity_food_storage.*
 
 class FoodStorageActivity : Activity() {
@@ -13,11 +11,11 @@ class FoodStorageActivity : Activity() {
 
 
 
-        activity_food_storage_button_add.setOnClickListener {
+        fragment_food_storage_button_add.setOnClickListener {
 
         }
 
-        activity_food_storage_button_close.setOnClickListener {
+        fragment_food_storage_button_close.setOnClickListener {
             finish()
         }
 

@@ -1,4 +1,4 @@
-package com.example.caloriecounter
+package com.example.caloriecounter.fragments
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -7,13 +7,13 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
+import com.example.caloriecounter.ICommunicator
+import com.example.caloriecounter.R
 import com.example.caloriecounter.data.MaxValue
 import com.example.caloriecounter.data.MaxValueViewModel
-import kotlinx.android.synthetic.main.activity_settings.*
-import kotlinx.android.synthetic.main.fragment_settings.*
-import kotlinx.android.synthetic.main.fragment_settings.activity_settings_button_save
-import kotlinx.android.synthetic.main.fragment_settings.activity_settings_input_kcal
-import kotlinx.android.synthetic.main.fragment_settings.activity_settings_input_litres
+import kotlinx.android.synthetic.main.fragment_settings.fragment_settings_button_save
+import kotlinx.android.synthetic.main.fragment_settings.fragment_settings_input_kcal
+import kotlinx.android.synthetic.main.fragment_settings.fragment_settings_input_litres
 
 
 class SettingsFragment : Fragment() {
@@ -38,10 +38,8 @@ class SettingsFragment : Fragment() {
 
         communicator = activity as ICommunicator
 
-        activity_settings_button_save.setOnClickListener{
-
+        fragment_settings_button_save.setOnClickListener{
             insertDataIntoDatabase()
-
             communicator.switchToFragment(MainFragment())
         }
 
@@ -51,16 +49,16 @@ class SettingsFragment : Fragment() {
 
 
     private fun insertDataIntoDatabase(){
-        val maxcal = activity_settings_input_kcal.text.toString()
-        val maxlit = activity_settings_input_litres.text.toString()
+        val maxcal = fragment_settings_input_kcal.text.toString()
+        val maxlit = fragment_settings_input_litres.text.toString()
 
         if(inputCheck(maxcal, maxlit)){
 
-            val maxValue1 = MaxValue(0, "CALORIES", maxcal.toInt())
-            val maxValue2 = MaxValue(1, "LITRES", maxcal.toInt())
+            val maxValue1 = MaxValue(5, "MAXCALORIES", maxcal.toInt())
+           // val maxValue2 = MaxValue(0, "MAXLITRES", maxcal.toInt())
 
             myMaxValueViewModel.addMaxValue(maxValue1)
-            myMaxValueViewModel.addMaxValue(maxValue2)
+            //myMaxValueViewModel.addMaxValue(maxValue2)
             Toast.makeText(requireContext(), "Erfolgreich gespeichert", Toast.LENGTH_LONG).show()
 
         }else{

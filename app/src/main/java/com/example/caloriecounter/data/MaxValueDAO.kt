@@ -8,12 +8,14 @@ import androidx.room.Query
 
 @Dao
 interface MaxValueDAO {
-//Simple MaxValueDAO for CRUD-Operations
 
-    @Insert(onConflict = OnConflictStrategy.IGNORE)
-    suspend fun addMaxValue(maxValue: MaxValue)
+    @Query("SELECT value FROM max_values_table WHERE type = 'MAXCALORIES'")
+    fun getCalorieMaxValue(): LiveData<Int>
 
-    @Query("SELECT * FROM max_values_table ORDER BY id ASC")
-    fun getAllMaxValues(): LiveData<List<MaxValue>>
+    @Query("SELECT value FROM max_values_table WHERE type = 'MAXLITRES'")
+    fun getLitreMaxValue(): LiveData<Int>
+
+    @Query("UPDATE max_values_table SET value = :newValue WHERE type = :type")
+    fun updateMaxValue(newValue: Int, type: String)
 
 }

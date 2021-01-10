@@ -28,7 +28,8 @@ class FoodStorageFragment : Fragment() {
         communicator = activity as ICommunicator
 
         fragment_food_storage_button_add.setOnClickListener{
-            communicator.switchToFragment(MainFragment())
+
+
         }
 
         fragment_food_storage_button_close.setOnClickListener{

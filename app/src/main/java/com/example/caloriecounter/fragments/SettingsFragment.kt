@@ -11,9 +11,8 @@ import com.example.caloriecounter.ICommunicator
 import com.example.caloriecounter.R
 import com.example.caloriecounter.data.MaxValue
 import com.example.caloriecounter.data.MaxValueViewModel
-import kotlinx.android.synthetic.main.fragment_settings.fragment_settings_button_save
-import kotlinx.android.synthetic.main.fragment_settings.fragment_settings_input_kcal
-import kotlinx.android.synthetic.main.fragment_settings.fragment_settings_input_litres
+import androidx.lifecycle.Observer
+import kotlinx.android.synthetic.main.fragment_settings.*
 
 
 class SettingsFragment : Fragment() {
@@ -38,41 +37,64 @@ class SettingsFragment : Fragment() {
 
         communicator = activity as ICommunicator
 
+        //When pressing save, the data is stored in the database
         fragment_settings_button_save.setOnClickListener{
             insertDataIntoDatabase()
+
+        }
+
+        //When pressing cancel, the main fragment is shown
+        fragment_settings_button_cancel.setOnClickListener{
             communicator.switchToFragment(MainFragment())
         }
+
+        //Prefill the two input fields with the maxvalues from the database
+        myMaxValueViewModel.getCalorieMaxValue.observe(viewLifecycleOwner, Observer { value ->
+            fragment_settings_input_kcal.setText(value.toString())
+        })
+
+        myMaxValueViewModel.getLitreMaxValue.observe(viewLifecycleOwner, Observer { value ->
+            fragment_settings_input_litres.setText(value.toString())
+        })
+
 
     }
 
 
 
-
+    //This method inserts the maxValue of Calories and Litres in the database
     private fun insertDataIntoDatabase(){
         val maxcal = fragment_settings_input_kcal.text.toString()
         val maxlit = fragment_settings_input_litres.text.toString()
 
         if(inputCheck(maxcal, maxlit)){
 
-            val maxValue1 = MaxValue(5, "MAXCALORIES", maxcal.toInt())
-           // val maxValue2 = MaxValue(0, "MAXLITRES", maxcal.toInt())
+            val maxValue1 = MaxValue(0, "MAXCALORIES", maxcal.toInt())
+            val maxValue2 = MaxValue(0, "MAXLITRES", maxlit.toInt())
 
-            myMaxValueViewModel.addMaxValue(maxValue1)
-            //myMaxValueViewModel.addMaxValue(maxValue2)
+            myMaxValueViewModel.updateMaxValue(maxValue1)
+            myMaxValueViewModel.updateMaxValue(maxValue2)
+
             Toast.makeText(requireContext(), "Erfolgreich gespeichert", Toast.LENGTH_LONG).show()
+            communicator.switchToFragment(MainFragment())
 
         }else{
 
-            Toast.makeText(requireContext(), "Fehler!", Toast.LENGTH_LONG).show()
+            Toast.makeText(requireContext(), "Falsche Eingabe!", Toast.LENGTH_LONG).show()
         }
-
-
 
     }
 
+    //This method validates the user input
     private fun inputCheck(maxcal: String, maxlit: String): Boolean{
 
-        //TODO: implement inputcheck
+        try {
+            maxcal.toInt()
+            maxlit.toInt()
+        }catch (e: Exception){
+            return false
+        }
+
         return true
     }
 

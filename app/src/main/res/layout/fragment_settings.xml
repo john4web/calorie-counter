@@ -11,11 +11,11 @@
         android:id="@+id/fragment_settings_button_save"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="37dp"
+        android:layout_marginTop="66dp"
+        android:layout_marginEnd="38dp"
         android:text="Speichern"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/fragment_settings_input_litres"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/fragment_settings_input_litres" />
 
     <EditText
         android:id="@+id/fragment_settings_input_kcal"
@@ -23,8 +23,8 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="9dp"
         android:ems="10"
+        android:hint="2000"
         android:inputType="number"
-        android:text="1000"
         app:layout_constraintEnd_toStartOf="@+id/fragment_settings_textView_kcal"
         app:layout_constraintHorizontal_chainStyle="packed"
         app:layout_constraintStart_toStartOf="parent"
@@ -83,8 +83,8 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="17dp"
         android:ems="10"
+        android:hint="3"
         android:inputType="number"
-        android:text="3"
         app:layout_constraintEnd_toStartOf="@+id/fragment_settings_textView_l"
         app:layout_constraintHorizontal_chainStyle="packed"
         app:layout_constraintStart_toStartOf="parent"
@@ -101,6 +101,16 @@
         app:layout_constraintBaseline_toBaselineOf="@+id/fragment_settings_input_litres"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/fragment_settings_input_litres" />
+
+    <Button
+        android:id="@+id/fragment_settings_button_cancel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="60dp"
+        android:text="Abbrechen"
+        app:layout_constraintStart_toStartOf="@+id/fragment_settings_button_save"
+        app:layout_constraintTop_toBottomOf="@+id/fragment_settings_button_save" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

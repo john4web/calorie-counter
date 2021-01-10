@@ -9,19 +9,23 @@ import kotlinx.coroutines.launch
 
 class MaxValueViewModel(application: Application): AndroidViewModel(application) {
 
-    private val getAllMaxValues: LiveData<List<MaxValue>>
     private val repository: MaxValueRepository
+
+    val getCalorieMaxValue: LiveData<Int>
+    val getLitreMaxValue: LiveData<Int>
+
 
    //This gets always executed when MaxValueViewModel is called. The init block will execute immediately after the primary constructor.
 init{
     val maxValueDAO = AppDatabase.getDatabase(application).maxValueDao()
        repository = MaxValueRepository(maxValueDAO)
-       getAllMaxValues = repository.getAllMaxValues
+       getCalorieMaxValue = repository.getCalorieMaxValue
+       getLitreMaxValue = repository.getLitreMaxValue
 }
 
-    fun addMaxValue(maxValue: MaxValue){
+    fun updateMaxValue(maxValue: MaxValue){
         viewModelScope.launch(Dispatchers.IO) {
-            repository.addMaxValue(maxValue)
+            repository.updateMaxValue(maxValue)
         }
     }
 

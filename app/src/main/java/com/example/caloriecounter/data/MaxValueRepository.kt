@@ -4,9 +4,11 @@ import androidx.lifecycle.LiveData
 
 class MaxValueRepository(private val maxValueDAO: MaxValueDAO) {
 
-    val getAllMaxValues: LiveData<List<MaxValue>> = maxValueDAO.getAllMaxValues()
-    suspend fun addMaxValue(maxValue: MaxValue){
-        maxValueDAO.addMaxValue(maxValue)
+    val getCalorieMaxValue: LiveData<Int> = maxValueDAO.getCalorieMaxValue()
+    val getLitreMaxValue: LiveData<Int> = maxValueDAO.getLitreMaxValue()
+
+    suspend fun updateMaxValue(maxValue: MaxValue){
+        maxValueDAO.updateMaxValue(maxValue.value, maxValue.type)
     }
 
 }

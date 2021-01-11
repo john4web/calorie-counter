@@ -6,9 +6,10 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 
-@Database(entities = [MaxValue::class], version = 1)
+@Database(entities = [MaxValue::class, Meal::class], version = 1)
 abstract class AppDatabase : RoomDatabase() {
     abstract fun maxValueDao(): MaxValueDAO
+    abstract fun mealDao(): MealDAO
 
 
     //This is the singleton class

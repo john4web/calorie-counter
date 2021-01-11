@@ -6,10 +6,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.caloriecounter.ICommunicator
-import com.example.caloriecounter.R
-import kotlinx.android.synthetic.main.fragment_food_storage.*
+import com.example.caloriecounter.databinding.FragmentFoodStorageBinding
 
 class FoodStorageFragment : Fragment() {
+
+    private var _binding: FragmentFoodStorageBinding? = null
+    private val binding get() = _binding!!
 
     private lateinit var communicator: ICommunicator
 
@@ -18,7 +20,11 @@ class FoodStorageFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_food_storage, container, false)
+        //return inflater.inflate(R.layout.fragment_food_storage, container, false)
+
+        _binding = FragmentFoodStorageBinding.inflate(inflater, container, false)
+        return binding.root
+
     }
 
 
@@ -27,17 +33,21 @@ class FoodStorageFragment : Fragment() {
 
         communicator = activity as ICommunicator
 
-        fragment_food_storage_button_add.setOnClickListener{
+        binding.fragmentFoodStorageButtonAdd.setOnClickListener{
 
 
         }
 
-        fragment_food_storage_button_close.setOnClickListener{
+        binding.fragmentFoodStorageButtonClose.setOnClickListener{
             communicator.switchToFragment(MainFragment())
         }
 
     }
 
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
 
 
 }

@@ -7,10 +7,12 @@ import android.view.View
 import android.view.ViewGroup
 import com.example.caloriecounter.ICommunicator
 import com.example.caloriecounter.R
-import kotlinx.android.synthetic.main.fragment_eat.*
+import com.example.caloriecounter.databinding.FragmentEatBinding
 
 class EatFragment : Fragment() {
 
+    private var _binding: FragmentEatBinding? = null
+    private val binding get() = _binding!!
     private lateinit var communicator: ICommunicator
 
     override fun onCreateView(
@@ -18,7 +20,9 @@ class EatFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_eat, container, false)
+        _binding = FragmentEatBinding.inflate(inflater, container, false)
+        return binding.root
+        //return inflater.inflate(R.layout.fragment_eat, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -26,16 +30,20 @@ class EatFragment : Fragment() {
 
         communicator = activity as ICommunicator
 
-        fragment_eat_button_eatNow.setOnClickListener{
+        binding.fragmentEatButtonEatNow.setOnClickListener{
             communicator.switchToFragment(MainFragment())
         }
 
-        fragment_eat_button_cancel.setOnClickListener{
+        binding.fragmentEatButtonCancel.setOnClickListener{
             communicator.switchToFragment(MainFragment())
         }
 
     }
 
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
 
 
 }

@@ -15,12 +15,14 @@ class MainActivity : AppCompatActivity(), ICommunicator{
 
         val mainFragment = MainFragment()
 
-        //setting the initial Fragment
-        supportFragmentManager.beginTransaction().apply{
-            replace(R.id.activity_main_frameLayout, mainFragment)
-            commit()
+        // only setting the fragment to mainFragment when activity is started for the first time
+        if(savedInstanceState == null) {
+            //setting the initial Fragment
+            supportFragmentManager.beginTransaction().apply {
+                replace(R.id.activity_main_frameLayout, mainFragment)
+                commit()
+            }
         }
-
 /*
         activity_main_progressBar_calories.max=1000
         activity_main_progressBar_litres.max=3

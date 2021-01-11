@@ -8,12 +8,14 @@ import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.example.caloriecounter.ICommunicator
-import com.example.caloriecounter.R
 import com.example.caloriecounter.data.MaxValueViewModel
-import kotlinx.android.synthetic.main.fragment_main.*
+import com.example.caloriecounter.databinding.FragmentMainBinding
 
 
 class MainFragment : Fragment() {
+
+    private var _binding: FragmentMainBinding? = null
+    private val binding get() = _binding!!
 
     private lateinit var communicator: ICommunicator
     private lateinit var myMaxValueViewModel: MaxValueViewModel
@@ -26,9 +28,10 @@ class MainFragment : Fragment() {
 
 
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_main, container, false)
+        //return inflater.inflate(R.layout.fragment_main, container, false)
 
-
+        _binding = FragmentMainBinding.inflate(inflater, container, false)
+        return binding.root
 
     }
 
@@ -37,19 +40,19 @@ class MainFragment : Fragment() {
 
         communicator = activity as ICommunicator
 
-        fragment_main_button_settings.setOnClickListener{
+        binding.fragmentMainButtonSettings.setOnClickListener{
             communicator.switchToFragment(SettingsFragment())
         }
 
-        fragment_main_button_eat.setOnClickListener{
+        binding.fragmentMainButtonEat.setOnClickListener{
             communicator.switchToFragment(EatFragment())
         }
 
-        fragment_main_button_storedFood.setOnClickListener{
+        binding.fragmentMainButtonStoredFood.setOnClickListener{
             communicator.switchToFragment(FoodStorageFragment())
         }
 
-        fragment_main_button_drink.setOnClickListener{
+        binding.fragmentMainButtonDrink.setOnClickListener{
 
         }
 
@@ -60,15 +63,20 @@ class MainFragment : Fragment() {
         })*/
 
         myMaxValueViewModel.getCalorieMaxValue.observe(viewLifecycleOwner, Observer { value ->
-            fragment_main_textview_maxCalories.text = value.toString()
+            binding.fragmentMainTextviewMaxCalories.text = value.toString()
         })
 
 
         myMaxValueViewModel.getLitreMaxValue.observe(viewLifecycleOwner, Observer { value ->
-            fragment_main_textview_maxLitres.text = value.toString()
+            binding.fragmentMainTextviewMaxLitres.text = value.toString()
         })
 
 
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 
 }

@@ -13,7 +13,7 @@ class MealViewModel(application: Application): AndroidViewModel(application) {
 
     val getAllMeals: LiveData<List<Meal>>
 
-   //This gets always executed when MaxValueViewModel is called. The init block will execute immediately after the primary constructor.
+   //This gets always executed when MealViewModel is called. The init block will execute immediately after the primary constructor.
 init{
     val mealDAO = AppDatabase.getDatabase(application).mealDao()
        repository = MealRepository(mealDAO)

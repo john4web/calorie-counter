@@ -1,5 +1,6 @@
 package com.example.caloriecounter.fragments
 
+import android.animation.ObjectAnimator
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -58,7 +59,14 @@ class MainFragment : Fragment() {
         //Viewmodel
         myMealViewModel = ViewModelProvider(this).get(MealViewModel::class.java)
         myMealViewModel.getAllMeals.observe(viewLifecycleOwner, Observer { meal ->
+
+            var calorieCounter:Int = 0
+            meal.forEach {
+                calorieCounter += it.calories
+            }
+
             mealAdapter.setData(meal)
+            ObjectAnimator.ofInt(binding.fragmentMainProgressBarCalories, "progress", calorieCounter).setDuration(2000).start()
         })
 
 
@@ -74,7 +82,17 @@ class MainFragment : Fragment() {
         //Viewmodel
         myBeverageViewModel = ViewModelProvider(this).get(BeverageViewModel::class.java)
         myBeverageViewModel.getAllBeverages.observe(viewLifecycleOwner, Observer { beverage ->
+
+            var litreCounter:Int = 0
+
+            beverage.forEach {
+                litreCounter += it.litres
+            }
+
+            binding.fragmentMainProgressBarLitres.progress = litreCounter
+
             beverageAdapter.setData(beverage)
+
         })
 
 
@@ -92,7 +110,7 @@ class MainFragment : Fragment() {
         }
 
         binding.fragmentMainButtonDrink.setOnClickListener{
-            val newBeverage = Beverage(0, "Glas Wasser", 0.5f)
+            val newBeverage = Beverage(0, "Glas Wasser", 1)
             myBeverageViewModel.addBeverage(newBeverage)
             Toast.makeText(requireContext(), "Getränk Erfolgreich gespeichert", Toast.LENGTH_LONG).show()
         }
@@ -103,12 +121,28 @@ class MainFragment : Fragment() {
 
         myMaxValueViewModel.getCalorieMaxValue.observe(viewLifecycleOwner, Observer { value ->
             binding.fragmentMainTextviewMaxCalories.text = value.toString()
+            binding.fragmentMainProgressBarCalories.max = value
         })
 
 
         myMaxValueViewModel.getLitreMaxValue.observe(viewLifecycleOwner, Observer { value ->
             binding.fragmentMainTextviewMaxLitres.text = value.toString()
+            binding.fragmentMainProgressBarLitres.max = value
         })
+
+        /*
+        activity_main_progressBar_calories.max=1000
+        activity_main_progressBar_litres.max=3
+
+        val currentProgressCalories = 500
+        val currentProgressLitres = 2
+
+        ObjectAnimator.ofInt(activity_main_progressBar_calories, "progress", currentProgressCalories).setDuration(2000).start()
+        ObjectAnimator.ofInt(activity_main_progressBar_litres, "progress", currentProgressLitres).setDuration(0).start()
+*/
+
+
+
 
 
 
@@ -117,6 +151,11 @@ class MainFragment : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    fun updateProgressBars(){
+
+
     }
 
 

@@ -8,5 +8,5 @@ data class Beverage(
     @PrimaryKey(autoGenerate = true)
     val id: Int,
     val name: String,
-    val litres: Float
+    val litres: Int
 )

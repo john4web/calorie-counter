@@ -23,16 +23,7 @@ class MainActivity : AppCompatActivity(), ICommunicator{
                 commit()
             }
         }
-/*
-        activity_main_progressBar_calories.max=1000
-        activity_main_progressBar_litres.max=3
 
-        val currentProgressCalories = 500
-        val currentProgressLitres = 2
-
-        ObjectAnimator.ofInt(activity_main_progressBar_calories, "progress", currentProgressCalories).setDuration(2000).start()
-        ObjectAnimator.ofInt(activity_main_progressBar_litres, "progress", currentProgressLitres).setDuration(0).start()
-*/
 
     }
 

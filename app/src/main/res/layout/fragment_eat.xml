@@ -6,6 +6,17 @@
     android:layout_height="match_parent"
     tools:context=".fragments.EatFragment">
 
+
+    <Spinner
+        android:id="@+id/fragment_eat_spinner"
+        android:layout_width="178dp"
+        android:layout_height="52dp"
+        android:layout_marginTop="50dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <EditText
         android:id="@+id/fragment_eat_input_name"
         android:layout_width="wrap_content"

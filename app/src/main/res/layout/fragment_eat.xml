@@ -12,8 +12,9 @@
         android:layout_width="178dp"
         android:layout_height="52dp"
         android:layout_marginTop="50dp"
+        android:layout_marginBottom="57dp"
+        app:layout_constraintBottom_toBottomOf="@+id/fragment_eat_button_eatNowStorageMeal"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -21,13 +22,13 @@
         android:id="@+id/fragment_eat_input_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="169dp"
-        android:layout_marginEnd="81dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="49dp"
         android:ems="10"
         android:hint="Schnitzel"
         android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintEnd_toEndOf="@+id/fragment_eat_button_eatNowStorageMeal"
+        app:layout_constraintTop_toBottomOf="@+id/fragment_eat_button_eatNowStorageMeal" />
 
     <Button
         android:id="@+id/fragment_eat_button_eatNow"
@@ -58,5 +59,15 @@
         android:text="Abbrechen"
         app:layout_constraintBaseline_toBaselineOf="@+id/fragment_eat_button_eatNow"
         app:layout_constraintEnd_toEndOf="parent" />
+
+    <Button
+        android:id="@+id/fragment_eat_button_eatNowStorageMeal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="31dp"
+        android:layout_marginTop="111dp"
+        android:text="Lebensmittel aus dem Speicher essen"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -138,7 +138,7 @@ class EatFragment : Fragment() {
                 val newMeal = Meal(0, mealName, mealCalories.toInt())
                 myMealViewModel.addMeal(newMeal)
 
-                Toast.makeText(requireContext(), "$mealName gegessen", Toast.LENGTH_LONG).show()
+                Toast.makeText(requireContext(), "$mealName gegessen!", Toast.LENGTH_LONG).show()
                 communicator.switchToFragment(MainFragment())
 
             } else {

@@ -43,6 +43,7 @@ class MainFragment : Fragment() {
         //Recyclerview mealList
         val mealAdapter = MealListAdapter {
             meal -> myMealViewModel.deleteMeal(meal)
+            Toast.makeText(requireContext(), "${meal.name} gelöscht!", Toast.LENGTH_LONG).show()
         }
         val mealRecyclerView = binding.fragmentMainRecyclerViewMealList
         mealRecyclerView.adapter = mealAdapter
@@ -66,6 +67,7 @@ class MainFragment : Fragment() {
         //Recyclerview beveragelList
         val beverageAdapter = BeverageListAdapter {
             beverage -> myBeverageViewModel.deleteBeverage(beverage)
+            Toast.makeText(requireContext(), "${beverage.name} gelöscht!", Toast.LENGTH_LONG).show()
         }
         val beverageRecyclerView = binding.fragmentMainRecyclerViewBeverageList
         beverageRecyclerView.adapter = beverageAdapter
@@ -104,7 +106,7 @@ class MainFragment : Fragment() {
         binding.fragmentMainButtonDrink.setOnClickListener{
             val newBeverage = Beverage(0, "Glas Wasser", 1)
             myBeverageViewModel.addBeverage(newBeverage)
-            Toast.makeText(requireContext(), "1 Liter getrunken", Toast.LENGTH_LONG).show()
+            Toast.makeText(requireContext(), "1 Liter getrunken!", Toast.LENGTH_LONG).show()
         }
 
 
@@ -122,33 +124,11 @@ class MainFragment : Fragment() {
             binding.fragmentMainProgressBarLitres.max = value
         })
 
-        /*
-        activity_main_progressBar_calories.max=1000
-        activity_main_progressBar_litres.max=3
-
-        val currentProgressCalories = 500
-        val currentProgressLitres = 2
-
-        ObjectAnimator.ofInt(activity_main_progressBar_calories, "progress", currentProgressCalories).setDuration(2000).start()
-        ObjectAnimator.ofInt(activity_main_progressBar_litres, "progress", currentProgressLitres).setDuration(0).start()
-*/
-
-
-
-
-
-
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
     }
-
-    fun updateProgressBars(){
-
-
-    }
-
 
 }

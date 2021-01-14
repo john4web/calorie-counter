@@ -85,7 +85,7 @@ class SettingsFragment : Fragment() {
             myMaxValueViewModel.updateMaxValue(maxValue1)
             myMaxValueViewModel.updateMaxValue(maxValue2)
 
-            Toast.makeText(requireContext(), "Erfolgreich gespeichert", Toast.LENGTH_LONG).show()
+            Toast.makeText(requireContext(), "Einstellungen gespeichert!", Toast.LENGTH_LONG).show()
             communicator.switchToFragment(MainFragment())
 
         }else{

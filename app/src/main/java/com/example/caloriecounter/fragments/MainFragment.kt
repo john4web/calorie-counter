@@ -60,6 +60,7 @@ class MainFragment : Fragment() {
 
             mealAdapter.setData(meal)
             ObjectAnimator.ofInt(binding.fragmentMainProgressBarCalories, "progress", calorieCounter).setDuration(2000).start()
+            binding.fragmentMainTextViewCalorieDiffNumber.text = calorieCounter.toString()
         })
 
 
@@ -86,6 +87,7 @@ class MainFragment : Fragment() {
             binding.fragmentMainProgressBarLitres.progress = litreCounter
 
             beverageAdapter.setData(beverage)
+            binding.fragmentMainTextViewLitreDiffNumber.text = litreCounter.toString()
 
         })
 

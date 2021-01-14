@@ -60,7 +60,7 @@
         android:id="@+id/fragment_main_button_eat"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="80dp"
         android:text="Essen"
         app:layout_constraintEnd_toEndOf="@+id/fragment_main_progressBar_litres"
         app:layout_constraintStart_toStartOf="@+id/fragment_main_progressBar_litres"
@@ -162,6 +162,44 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/fragment_main_recyclerView_mealList" />
+
+    <TextView
+        android:id="@+id/fragment_main_textView_calorieDiffText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:text="gegessen:"
+        app:layout_constraintStart_toStartOf="@+id/fragment_main_progressBar_calories"
+        app:layout_constraintTop_toBottomOf="@+id/fragment_main_progressBar_calories" />
+
+    <TextView
+        android:id="@+id/fragment_main_textView_calorieDiffNumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:text="0"
+        app:layout_constraintBottom_toBottomOf="@+id/fragment_main_textView_calorieDiffText"
+        app:layout_constraintStart_toEndOf="@+id/fragment_main_textView_calorieDiffText"
+        app:layout_constraintTop_toTopOf="@+id/fragment_main_textView_calorieDiffText" />
+
+    <TextView
+        android:id="@+id/fragment_main_textView_litreDiffText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:text="getrunken:"
+        app:layout_constraintStart_toStartOf="@+id/fragment_main_progressBar_litres"
+        app:layout_constraintTop_toBottomOf="@+id/fragment_main_progressBar_litres" />
+
+    <TextView
+        android:id="@+id/fragment_main_textView_litreDiffNumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:text="0"
+        app:layout_constraintBottom_toBottomOf="@+id/fragment_main_textView_litreDiffText"
+        app:layout_constraintStart_toEndOf="@+id/fragment_main_textView_litreDiffText"
+        app:layout_constraintTop_toTopOf="@+id/fragment_main_textView_litreDiffText" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

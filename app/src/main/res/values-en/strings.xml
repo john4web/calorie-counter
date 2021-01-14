@@ -20,7 +20,7 @@
     <string name="fragment_food_storage_textView_addMealHeading">Add new Meals to the storage</string>
     <string name="fragment_food_storage_textView_name">Name:</string>
     <string name="fragment_food_storage_textView_calories">Calories:</string>
-    <string name="fragment_food_storage_button_add">Add:</string>
+    <string name="fragment_food_storage_button_add">Add</string>
     <string name="fragment_food_storage_button_close">Close</string>
     <string name="fragment_eat_textView_spinnerHeader">Select a meal from the storage</string>
     <string name="fragment_eat_button_eatNowStorageMeal">Eat selected meal</string>

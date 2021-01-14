@@ -21,13 +21,13 @@
     <string name="fragment_food_storage_textView_addMealHeading">Neue Lebensmittel zum Speicher hinzufügen</string>
     <string name="fragment_food_storage_textView_name">Name:</string>
     <string name="fragment_food_storage_textView_calories">Kalorien:</string>
-    <string name="fragment_food_storage_button_add">Hinzufügen:</string>
+    <string name="fragment_food_storage_button_add">Hinzufügen</string>
     <string name="fragment_food_storage_button_close">Schließen</string>
     <string name="fragment_eat_textView_spinnerHeader">Lebensmittel aus dem Speicher auswählen</string>
     <string name="fragment_eat_button_eatNowStorageMeal">ausgewähltes Lebensmittel essen</string>
     <string name="fragment_eat_textView_newMealInputHeading">Neues Lebensmittel eingeben</string>
     <string name="fragment_eat_textView_inputNameLabel">Name:</string>
-    <string name="fragment_eat_textView_inputCaloriesLabel">Kalorien</string>
+    <string name="fragment_eat_textView_inputCaloriesLabel">Kalorien:</string>
     <string name="fragment_eat_button_eatNow">Neues Lebensmittel essen</string>
     <string name="fragment_eat_button_cancel">Abbrechen</string>
 </resources>

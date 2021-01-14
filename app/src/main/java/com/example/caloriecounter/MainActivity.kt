@@ -30,6 +30,7 @@ class MainActivity : AppCompatActivity(), ICommunicator{
     override fun switchToFragment(fragment: Fragment) {
         supportFragmentManager.beginTransaction().apply{
             replace(R.id.activity_main_frameLayout, fragment)
+            addToBackStack(null)
             commit()
         }
     }

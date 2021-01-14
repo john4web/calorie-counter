@@ -1,64 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<ScrollView
+
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    >
+
+<androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".fragments.SettingsFragment">
 
 
-    <Button
-        android:id="@+id/fragment_settings_button_save"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="66dp"
-        android:layout_marginEnd="39dp"
-        android:text="Speichern"
-        app:layout_constraintEnd_toEndOf="@+id/fragment_settings_input_litres"
-        app:layout_constraintTop_toBottomOf="@+id/fragment_settings_input_litres" />
-
-    <EditText
-        android:id="@+id/fragment_settings_input_kcal"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="9dp"
-        android:ems="10"
-        android:hint="2000"
-        android:inputType="number"
-        app:layout_constraintEnd_toStartOf="@+id/fragment_settings_textView_kcal"
-        app:layout_constraintHorizontal_chainStyle="packed"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/fragment_settings_textView_calorieHeading" />
-
-    <TextView
-        android:id="@+id/fragment_settings_textView_kcal"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="19dp"
-        android:text="kcal"
-        android:textColor="#000000"
-        android:textSize="18sp"
-        app:layout_constraintBaseline_toBaselineOf="@+id/fragment_settings_input_kcal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/fragment_settings_input_kcal" />
-
-
-    <TextView
-        android:id="@+id/fragment_settings_textView_calorieHeading"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="113dp"
-        android:text="Maximale Kalorien pro Tag"
-        android:textColor="#000000"
-        android:textSize="18sp"
-        app:layout_constraintStart_toStartOf="@+id/fragment_settings_input_kcal"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <TextView
         android:id="@+id/fragment_settings_textView_heading"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="30dp"
         android:text="Einstellungen"
         android:textColor="#000000"
         android:textSize="30sp"
@@ -66,51 +28,100 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/fragment_settings_textView_litresHeading"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="25dp"
-        android:text="Maximale Liter pro Tag"
-        android:textColor="#000000"
-        android:textSize="18sp"
-        app:layout_constraintStart_toStartOf="@+id/fragment_settings_input_litres"
-        app:layout_constraintTop_toBottomOf="@+id/fragment_settings_input_kcal" />
-
     <EditText
         android:id="@+id/fragment_settings_input_litres"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="17dp"
+        android:layout_marginTop="100dp"
         android:ems="10"
         android:hint="3"
         android:inputType="number"
-        app:layout_constraintEnd_toStartOf="@+id/fragment_settings_textView_l"
-        app:layout_constraintHorizontal_chainStyle="packed"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/fragment_settings_textView_litresHeading" />
-
-    <TextView
-        android:id="@+id/fragment_settings_textView_l"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="22dp"
-        android:text="l"
-        android:textColor="#000000"
-        android:textSize="18sp"
-        app:layout_constraintBaseline_toBaselineOf="@+id/fragment_settings_input_litres"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/fragment_settings_input_litres" />
+        app:layout_constraintEnd_toStartOf="@+id/fragment_settings_textView_kcal"
+        app:layout_constraintStart_toStartOf="@+id/fragment_settings_input_kcal"
+        app:layout_constraintTop_toBottomOf="@+id/fragment_settings_input_kcal" />
 
     <Button
         android:id="@+id/fragment_settings_button_cancel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="30dp"
         android:text="Abbrechen"
+        app:layout_constraintEnd_toEndOf="@+id/fragment_settings_button_save"
         app:layout_constraintStart_toStartOf="@+id/fragment_settings_button_save"
         app:layout_constraintTop_toBottomOf="@+id/fragment_settings_button_save" />
 
+    <Button
+        android:id="@+id/fragment_settings_button_save"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:text="Speichern"
+        app:layout_constraintEnd_toStartOf="@+id/fragment_settings_textView_l"
+        app:layout_constraintStart_toStartOf="@+id/fragment_settings_input_litres"
+        app:layout_constraintTop_toBottomOf="@+id/fragment_settings_input_litres" />
+
+    <TextView
+        android:id="@+id/fragment_settings_textView_kcal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:text="kcal"
+        android:textColor="#000000"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@+id/fragment_settings_input_kcal"
+        app:layout_constraintStart_toEndOf="@+id/fragment_settings_input_kcal"
+        app:layout_constraintTop_toBottomOf="@+id/fragment_settings_textView_calorieHeading"
+        app:layout_constraintVertical_bias="0.774" />
+
+    <TextView
+        android:id="@+id/fragment_settings_textView_calorieHeading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:text="Maximale Kalorien pro Tag"
+        android:textColor="#000000"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/fragment_settings_input_kcal"
+        app:layout_constraintEnd_toEndOf="@+id/fragment_settings_input_kcal"
+        app:layout_constraintStart_toStartOf="@+id/fragment_settings_input_kcal" />
+
+    <EditText
+        android:id="@+id/fragment_settings_input_kcal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:ems="10"
+        android:hint="2000"
+        android:inputType="number"
+        app:layout_constraintEnd_toEndOf="@+id/fragment_settings_textView_heading"
+        app:layout_constraintStart_toStartOf="@+id/fragment_settings_textView_heading"
+        app:layout_constraintTop_toBottomOf="@+id/fragment_settings_textView_heading" />
+
+    <TextView
+        android:id="@+id/fragment_settings_textView_litresHeading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:text="Maximale Liter pro Tag"
+        android:textColor="#000000"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/fragment_settings_input_litres"
+        app:layout_constraintEnd_toEndOf="@+id/fragment_settings_input_litres"
+        app:layout_constraintHorizontal_bias="0.428"
+        app:layout_constraintStart_toStartOf="@+id/fragment_settings_input_litres" />
+
+    <TextView
+        android:id="@+id/fragment_settings_textView_l"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="l"
+        android:textColor="#000000"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@+id/fragment_settings_input_litres"
+        app:layout_constraintStart_toEndOf="@+id/fragment_settings_input_litres"
+        app:layout_constraintTop_toTopOf="@+id/fragment_settings_input_litres" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>

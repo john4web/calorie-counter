@@ -42,6 +42,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="0"
+        android:textColor="#000000"
         android:textSize="15sp"
         app:layout_constraintStart_toStartOf="@+id/fragment_main_progressBar_litres"
         app:layout_constraintTop_toBottomOf="@+id/fragment_main_progressBar_litres" />
@@ -52,6 +53,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="3"
+        android:textColor="#000000"
         android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="@+id/fragment_main_progressBar_litres"
         app:layout_constraintTop_toBottomOf="@+id/fragment_main_progressBar_litres" />
@@ -101,6 +103,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="0"
+        android:textColor="#000000"
         android:textSize="15sp"
         app:layout_constraintStart_toStartOf="@+id/fragment_main_progressBar_calories"
         app:layout_constraintTop_toBottomOf="@+id/fragment_main_progressBar_calories" />
@@ -110,6 +113,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="2000"
+        android:textColor="#000000"
         android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="@+id/fragment_main_progressBar_calories"
         app:layout_constraintTop_toBottomOf="@+id/fragment_main_progressBar_calories" />
@@ -121,6 +125,7 @@
         android:layout_marginTop="100dp"
         android:text="Heutiger Tagesbedarf"
         android:textSize="30sp"
+        android:textColor="#000000"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -130,6 +135,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Kilokalorien"
+        android:textColor="#000000"
         android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/fragment_main_progressBar_calories"
         app:layout_constraintStart_toStartOf="@+id/fragment_main_progressBar_calories" />
@@ -139,6 +145,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Liter"
+        android:textColor="#000000"
         android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/fragment_main_progressBar_litres"
         app:layout_constraintStart_toStartOf="@+id/fragment_main_progressBar_litres" />
@@ -147,7 +154,7 @@
         android:id="@+id/fragment_main_recyclerView_mealList"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="100dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
@@ -157,7 +164,7 @@
         android:id="@+id/fragment_main_recyclerView_beverageList"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="150dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
@@ -169,6 +176,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
         android:text="gegessen:"
+        android:textColor="#000000"
         app:layout_constraintStart_toStartOf="@+id/fragment_main_progressBar_calories"
         app:layout_constraintTop_toBottomOf="@+id/fragment_main_progressBar_calories" />
 
@@ -178,6 +186,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
         android:text="0"
+        android:textColor="#000000"
         app:layout_constraintBottom_toBottomOf="@+id/fragment_main_textView_calorieDiffText"
         app:layout_constraintStart_toEndOf="@+id/fragment_main_textView_calorieDiffText"
         app:layout_constraintTop_toTopOf="@+id/fragment_main_textView_calorieDiffText" />
@@ -188,6 +197,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
         android:text="getrunken:"
+        android:textColor="#000000"
         app:layout_constraintStart_toStartOf="@+id/fragment_main_progressBar_litres"
         app:layout_constraintTop_toBottomOf="@+id/fragment_main_progressBar_litres" />
 
@@ -197,9 +207,35 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
         android:text="0"
+        android:textColor="#000000"
         app:layout_constraintBottom_toBottomOf="@+id/fragment_main_textView_litreDiffText"
         app:layout_constraintStart_toEndOf="@+id/fragment_main_textView_litreDiffText"
         app:layout_constraintTop_toTopOf="@+id/fragment_main_textView_litreDiffText" />
+
+    <TextView
+        android:id="@+id/fragment_main_textView_mealsHeading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:text="Heutige Speisen:"
+        android:textColor="#000000"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/fragment_main_recyclerView_mealList"
+        app:layout_constraintEnd_toEndOf="@+id/fragment_main_recyclerView_mealList"
+        app:layout_constraintHorizontal_bias="0.51"
+        app:layout_constraintStart_toStartOf="@+id/fragment_main_recyclerView_mealList" />
+
+    <TextView
+        android:id="@+id/fragment_main_textView_beveragesHeading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:text="Heutige Getränke:"
+        android:textColor="#000000"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/fragment_main_recyclerView_beverageList"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

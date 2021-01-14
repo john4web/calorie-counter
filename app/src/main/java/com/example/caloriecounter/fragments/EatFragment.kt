@@ -82,7 +82,6 @@ class EatFragment : Fragment() {
             //Gets executed when user selects item
             override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
                 selectedItem = spinnerStorageMealArray[position]
-                Toast.makeText(requireContext(), selectedItem.toString(), Toast.LENGTH_LONG).show()
             }
 
             //Gets executed when nothing is selected

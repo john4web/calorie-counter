@@ -30,4 +30,14 @@
     <string name="fragment_eat_textView_inputCaloriesLabel">Kalorien:</string>
     <string name="fragment_eat_button_eatNow">Neues Lebensmittel essen</string>
     <string name="fragment_eat_button_cancel">Abbrechen</string>
+    <string name="fragment_settings_input_litres" translatable="false">3</string>
+    <string name="fragment_settings_textView_kcal" translatable="false">kcal</string>
+    <string name="fragment_settings_input_kcal" translatable="false">2000</string>
+    <string name="fragment_settings_textView_l" translatable="false">1</string>
+    <string name="fragment_main_textView_litreDiffNumber" translatable="false">0</string>
+    <string name="fragment_main_textView_calorieDiffNumber" translatable="false">0</string>
+    <string name="fragment_main_textview_maxCalories" translatable="false">2000</string>
+    <string name="fragment_main_textview_minCalories" translatable="false">0</string>
+    <string name="fragment_main_textview_maxLitres" translatable="false">3</string>
+    <string name="fragment_main_textview_minLitres" translatable="false">0</string>
 </resources>

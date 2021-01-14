@@ -92,7 +92,7 @@ class FoodStorageFragment : Fragment() {
             val newMeal = StorageMeal(0, storageMealName, storageMealCalories.toInt())
             myStorageMealViewModel.addStorageMeal(newMeal)
 
-            Toast.makeText(requireContext(), "Mahlzeit erfolgreich gespeichert", Toast.LENGTH_LONG).show()
+            Toast.makeText(requireContext(), "$storageMealName hinzugefügt!", Toast.LENGTH_LONG).show()
 
         }else{
 

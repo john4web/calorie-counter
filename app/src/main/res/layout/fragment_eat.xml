@@ -1,73 +1,139 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    >
+<androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".fragments.EatFragment">
 
 
-    <Spinner
-        android:id="@+id/fragment_eat_spinner"
-        android:layout_width="178dp"
-        android:layout_height="52dp"
-        android:layout_marginTop="50dp"
-        android:layout_marginBottom="57dp"
-        app:layout_constraintBottom_toBottomOf="@+id/fragment_eat_button_eatNowStorageMeal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <EditText
         android:id="@+id/fragment_eat_input_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="49dp"
+        android:layout_marginTop="20dp"
         android:ems="10"
         android:hint="Schnitzel"
         android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="@+id/fragment_eat_button_eatNowStorageMeal"
-        app:layout_constraintTop_toBottomOf="@+id/fragment_eat_button_eatNowStorageMeal" />
-
-    <Button
-        android:id="@+id/fragment_eat_button_eatNow"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="43dp"
-        android:layout_marginBottom="181dp"
-        android:text="Jetzt essen"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintEnd_toEndOf="@+id/fragment_eat_textView_newMealInputHeading"
+        app:layout_constraintStart_toStartOf="@+id/fragment_eat_textView_newMealInputHeading"
+        app:layout_constraintTop_toBottomOf="@+id/fragment_eat_textView_newMealInputHeading" />
 
     <EditText
         android:id="@+id/fragment_eat_input_calories"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="29dp"
+        android:layout_marginTop="20dp"
         android:ems="10"
         android:hint="1000"
         android:inputType="number"
+        app:layout_constraintEnd_toEndOf="@+id/fragment_eat_input_name"
         app:layout_constraintStart_toStartOf="@+id/fragment_eat_input_name"
         app:layout_constraintTop_toBottomOf="@+id/fragment_eat_input_name" />
+
+    <TextView
+        android:id="@+id/fragment_eat_textView_inputCaloriesLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="12dp"
+        android:text="Kalorien:"
+        android:textColor="#000000"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toStartOf="@+id/fragment_eat_input_calories"
+        app:layout_constraintTop_toTopOf="@+id/fragment_eat_input_calories" />
+
+    <Button
+        android:id="@+id/fragment_eat_button_eatNow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="Neues Lebensmittel essen"
+        app:layout_constraintEnd_toEndOf="@+id/fragment_eat_input_calories"
+        app:layout_constraintStart_toStartOf="@+id/fragment_eat_input_calories"
+        app:layout_constraintTop_toBottomOf="@+id/fragment_eat_input_calories" />
 
     <Button
         android:id="@+id/fragment_eat_button_cancel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="40dp"
+        android:layout_marginTop="50dp"
         android:text="Abbrechen"
-        app:layout_constraintBaseline_toBaselineOf="@+id/fragment_eat_button_eatNow"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="@+id/fragment_eat_button_eatNow"
+        app:layout_constraintStart_toStartOf="@+id/fragment_eat_button_eatNow"
+        app:layout_constraintTop_toBottomOf="@+id/fragment_eat_button_eatNow" />
+
+    <TextView
+        android:id="@+id/fragment_eat_textView_inputNameLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="12dp"
+        android:text="Name:"
+        android:textColor="#000000"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toStartOf="@+id/fragment_eat_input_name"
+        app:layout_constraintTop_toTopOf="@+id/fragment_eat_input_name" />
+
+    <TextView
+        android:id="@+id/fragment_eat_textView_newMealInputHeading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:text="Neues Lebensmittel eingeben:"
+        android:textColor="#000000"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="@+id/fragment_eat_divider"
+        app:layout_constraintStart_toStartOf="@+id/fragment_eat_divider"
+        app:layout_constraintTop_toBottomOf="@+id/fragment_eat_divider" />
+
+    <TextView
+        android:id="@+id/fragment_eat_textView_spinnerHeader"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="70dp"
+        android:text="Lebensmittel aus dem Speicher auswählen:"
+        android:textColor="#000000"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/fragment_eat_button_eatNowStorageMeal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="31dp"
-        android:layout_marginTop="111dp"
-        android:text="Lebensmittel aus dem Speicher essen"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_marginTop="32dp"
+        android:text="Ausgewähltes Lebensmittel essen"
+        app:layout_constraintEnd_toEndOf="@+id/fragment_eat_spinner"
+        app:layout_constraintHorizontal_bias="0.503"
+        app:layout_constraintStart_toStartOf="@+id/fragment_eat_spinner"
+        app:layout_constraintTop_toBottomOf="@+id/fragment_eat_spinner" />
+
+    <Spinner
+        android:id="@+id/fragment_eat_spinner"
+        android:layout_width="178dp"
+        android:layout_height="52dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintEnd_toEndOf="@+id/fragment_eat_textView_spinnerHeader"
+        app:layout_constraintStart_toStartOf="@+id/fragment_eat_textView_spinnerHeader"
+        app:layout_constraintTop_toBottomOf="@+id/fragment_eat_textView_spinnerHeader" />
+
+    <View
+        android:id="@+id/fragment_eat_divider"
+        android:layout_width="match_parent"
+        android:layout_height="3dp"
+        android:layout_marginTop="100dp"
+        android:background="?android:attr/listDivider"
+        app:layout_constraintEnd_toEndOf="@+id/fragment_eat_button_eatNowStorageMeal"
+        app:layout_constraintStart_toStartOf="@+id/fragment_eat_button_eatNowStorageMeal"
+        app:layout_constraintTop_toBottomOf="@+id/fragment_eat_button_eatNowStorageMeal" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

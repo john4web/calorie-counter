@@ -52,86 +52,44 @@ class EatFragment : Fragment() {
             insertMealIntoDatabase()
         }
 
-
-
-
-
         binding.fragmentEatButtonCancel.setOnClickListener {
             communicator.switchToFragment(MainFragment())
         }
-/*
-
-        //Spinner for StorageMeals
-        val storageMealSpinnerAdapter = StorageMealSpinnerAdapter()
-        val mealSpinner = binding.fragmentEatSpinner
-        mealSpinner.adapter = storageMealSpinnerAdapter
-        mealRecyclerView.layoutManager = LinearLayoutManager(requireContext())
-
-        //Viewmodel
-        myStorageMealViewModel = ViewModelProvider(this).get(StorageMealViewModel::class.java)
-        myStorageMealViewModel.getAllStorageMeals.observe(viewLifecycleOwner, Observer { storageMeal ->
-
-            storageMealAdapter.setData(storageMeal)
-        })
-
-*/
-        /*
-        val values = arrayOf("Time at Residence", "Under 6 months", "6-12 months", "1-2 years", "2-4 years", "4-8 years", "8-15 years", "Over 15 years")
-        val adapter = ArrayAdapter(this.requireActivity(), R.layout.spinner_meal_row, values)
-        adapter.setDropDownViewResource(R.layout.simple_dropdown_item_1line)
-        binding.fragmentEatSpinner.adapter = adapter
-*/
-
-/*
-        val spinner: Spinner = binding.fragmentEatSpinner
-        // Create an ArrayAdapter using the string array and a default spinner layout
-        ArrayAdapter.createFromResource(
-                requireContext()!!,
-                R.array.boroughs_array,
-                android.R.layout.simple_spinner_item
-        ).also { adapter ->
-            // Specify the layout to use when the list of choices appears
-            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-            // Apply the adapter to the spinner
-            spinner.adapter = adapter
-
-        }
-*/
-
-
 
         val mySpinner = binding.fragmentEatSpinner
         var spinnerStringArray = arrayListOf<String>()
         var spinnerStorageMealArray = arrayListOf<StorageMeal>()
         var selectedItem: StorageMeal? = null
 
+        //This is executed everytime the storageMeals change in the database
         myStorageMealViewModel.getAllStorageMeals.observe(viewLifecycleOwner, Observer { storageMeal ->
-           // val array = arrayOf(1, "Orion", "Witch Head", "Ghost Head", "Black Widow", "Flame", "Cone","Pelican","Helix","Snake","Elephant's Trunk")
 
+            //Clear arrays completely
             spinnerStringArray.clear()
             spinnerStorageMealArray.clear()
 
+            //And fill it again with the updated values
             storageMeal.forEach{
-                spinnerStringArray.add(it.name)
+                spinnerStringArray.add("${it.name}: ${it.calories}kcal")
                 spinnerStorageMealArray.add(it)
             }
 
-            var adapter= ArrayAdapter(requireContext(),android.R.layout.simple_list_item_1,spinnerStringArray)
+            var adapter= ArrayAdapter(requireContext(), android.R.layout.simple_list_item_1, spinnerStringArray)
             mySpinner.adapter=adapter
 
         })
 
 
         mySpinner.onItemSelectedListener = object: AdapterView.OnItemSelectedListener{
+            //Gets executed when user selects item
             override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
-
-                selectedItem = spinnerStorageMealArray[position]//parent!!.getItemAtPosition(position)
+                selectedItem = spinnerStorageMealArray[position]
                 Toast.makeText(requireContext(), selectedItem.toString(), Toast.LENGTH_LONG).show()
-
             }
 
+            //Gets executed when nothing is selected
             override fun onNothingSelected(parent: AdapterView<*>?) {
-                TODO("Not yet implemented")
+                Toast.makeText(requireContext(), "Nothing is selected", Toast.LENGTH_LONG).show()
             }
 
         }
@@ -140,26 +98,6 @@ class EatFragment : Fragment() {
         binding.fragmentEatButtonEatNowStorageMeal.setOnClickListener {
             insertStorageMealIntoDatabase(selectedItem)
         }
-
-/*
-        termsList = new ArrayList<>();
-        termIdList = new ArrayList<>();
-        mTermViewModel = new ViewModelProvider(this).get(TermViewModel.class);
-        mTermViewModel.getAllTerms().observe(this, new Observer<List<TermEntity>>() {
-            @Override
-            public void onChanged(@Nullable final List<TermEntity> terms) {
-                for (TermEntity term : terms) {
-                termsList.add(term.getTermName());
-                termIdList.add(term.getTermId());
-            }
-            }
-        });
-
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_spinner_item, termsList);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        mTermSpinner.setAdapter(adapter);
-    }
-        */
 
 
 
@@ -170,18 +108,18 @@ class EatFragment : Fragment() {
             _binding = null
         }
 
-
+    //Here, the chosen storageMeal gets inserted into the database as Meal
     private fun insertStorageMealIntoDatabase(selectedItem: StorageMeal?){
 
-        //checken, ob selected item eh ausgewählt ist
-
+        //check, if user has chosen an item
         if(selectedItem != null) {
+            //convert StorageMeal into Meal and insert it into database
             val newMeal = Meal(0, selectedItem.name, selectedItem.calories)
             myMealViewModel.addMeal(newMeal)
             communicator.switchToFragment(MainFragment())
+            Toast.makeText(requireContext(), "${selectedItem.name} gegessen!", Toast.LENGTH_LONG).show()
         }else{
-            Toast.makeText(requireContext(), "etwas ist schiefgelaufen", Toast.LENGTH_LONG).show()
-
+            Toast.makeText(requireContext(), "Es sind noch keine Lebensmittel im Speicher vorhanden", Toast.LENGTH_LONG).show()
         }
 
 
@@ -200,11 +138,10 @@ class EatFragment : Fragment() {
                 val newMeal = Meal(0, mealName, mealCalories.toInt())
                 myMealViewModel.addMeal(newMeal)
 
-                Toast.makeText(requireContext(), "Mahlzeit erfolgreich gespeichert", Toast.LENGTH_LONG).show()
+                Toast.makeText(requireContext(), "$mealName gegessen", Toast.LENGTH_LONG).show()
                 communicator.switchToFragment(MainFragment())
 
             } else {
-
                 Toast.makeText(requireContext(), "Falsche Eingabe!", Toast.LENGTH_LONG).show()
             }
 

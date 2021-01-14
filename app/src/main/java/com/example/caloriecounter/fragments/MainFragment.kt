@@ -30,14 +30,6 @@ class MainFragment : Fragment() {
             savedInstanceState: Bundle?
     ): View? {
 
-
-
-        // Inflate the layout for this fragment
-        //return inflater.inflate(R.layout.fragment_main, container, false)
-
-
-
-
         _binding = FragmentMainBinding.inflate(inflater, container, false)
         return binding.root
 
@@ -112,7 +104,7 @@ class MainFragment : Fragment() {
         binding.fragmentMainButtonDrink.setOnClickListener{
             val newBeverage = Beverage(0, "Glas Wasser", 1)
             myBeverageViewModel.addBeverage(newBeverage)
-            Toast.makeText(requireContext(), "Getränk Erfolgreich gespeichert", Toast.LENGTH_LONG).show()
+            Toast.makeText(requireContext(), "1 Liter getrunken", Toast.LENGTH_LONG).show()
         }
 
 

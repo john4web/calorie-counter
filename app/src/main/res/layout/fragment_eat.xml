@@ -41,11 +41,11 @@
         android:id="@+id/fragment_eat_textView_inputCaloriesLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
         android:layout_marginEnd="12dp"
         android:text="Kalorien:"
         android:textColor="#000000"
         android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="@+id/fragment_eat_input_calories"
         app:layout_constraintEnd_toStartOf="@+id/fragment_eat_input_calories"
         app:layout_constraintTop_toTopOf="@+id/fragment_eat_input_calories" />
 
@@ -73,11 +73,11 @@
         android:id="@+id/fragment_eat_textView_inputNameLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
         android:layout_marginEnd="12dp"
         android:text="Name:"
         android:textColor="#000000"
         android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="@+id/fragment_eat_input_name"
         app:layout_constraintEnd_toStartOf="@+id/fragment_eat_input_name"
         app:layout_constraintTop_toTopOf="@+id/fragment_eat_input_name" />
 
@@ -134,6 +134,18 @@
         app:layout_constraintEnd_toEndOf="@+id/fragment_eat_button_eatNowStorageMeal"
         app:layout_constraintStart_toStartOf="@+id/fragment_eat_button_eatNowStorageMeal"
         app:layout_constraintTop_toBottomOf="@+id/fragment_eat_button_eatNowStorageMeal" />
+
+    <TextView
+        android:id="@+id/fragment_eat_textView_kcalLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:text="kcal"
+        android:textColor="#000000"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="@+id/fragment_eat_input_calories"
+        app:layout_constraintStart_toEndOf="@+id/fragment_eat_input_calories"
+        app:layout_constraintTop_toTopOf="@+id/fragment_eat_input_calories" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

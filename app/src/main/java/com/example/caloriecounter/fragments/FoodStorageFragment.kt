@@ -56,6 +56,7 @@ class FoodStorageFragment : Fragment() {
         //Recyclerview storageMealList
         val storageMealAdapter = StorageMealListAdapter {
             storageMeal -> myStorageMealViewModel.deleteStorageMeal(storageMeal)
+            Toast.makeText(requireContext(), "${storageMeal.name} gelöscht!", Toast.LENGTH_LONG).show()
         }
         val mealRecyclerView = binding.fragmentFoodStorageRecyclerViewStorageMealList
         mealRecyclerView.adapter = storageMealAdapter

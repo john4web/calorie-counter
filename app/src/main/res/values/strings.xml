@@ -40,4 +40,10 @@
     <string name="fragment_main_textview_minCalories" translatable="false">0</string>
     <string name="fragment_main_textview_maxLitres" translatable="false">3</string>
     <string name="fragment_main_textview_minLitres" translatable="false">0</string>
+    <string name="fragment_food_storage_input_calories" translatable="false">1000</string>
+    <string name="fragment_food_storage_textView_kcal" translatable="false">kcal</string>
+    <string name="fragment_food_storage_input_name" translatable="false">Schnitzel</string>
+    <string name="fragment_eat_input_calories" translatable="false">1000</string>
+    <string name="fragment_eat_input_name" translatable="false">Schnitzel</string>
+    <string name="fragment_eat_textView_kcalLabel" translatable="false">kcal</string>
 </resources>

@@ -1,5 +1,33 @@
 <resources>
-    <string name="app_name">CalorieCounter</string>
+    <string name="app_name" translatable="false">Calorie Counter</string>
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="fragment_main_textView_heading">Heutiger Tagesbedarf</string>
+    <string name="fragment_main_progressBar_calories_heading">Kilokalorien</string>
+    <string name="fragment_main_progressBar_litres_heading">Liter</string>
+    <string name="fragment_main_textView_calorieDiffText">gegessen:</string>
+    <string name="fragment_main_textView_litreDiffText">getrunken:</string>
+    <string name="fragment_main_button_eat">Essen</string>
+    <string name="fragment_main_button_drink">Trinken</string>
+    <string name="fragment_main_textView_mealsHeading">Heutige Speisen</string>
+    <string name="fragment_main_textView_beveragesHeading">Heutige Getränke</string>
+    <string name="fragment_main_button_storedFood">Gespeicherte Lebensmittel</string>
+    <string name="fragment_main_button_settings">Einstellungen</string>
+    <string name="fragment_settings_textView_heading">Einstellungen</string>
+    <string name="fragment_settings_textView_calorieHeading">Maximale Kalorien pro Tag</string>
+    <string name="fragment_settings_textView_litresHeading">Maximale Liter pro Tag</string>
+    <string name="fragment_settings_button_save">Speichern</string>
+    <string name="fragment_settings_button_cancel">Abbrechen</string>
+    <string name="fragment_food_storage_textView_heading">Gespeicherte Lebensmittel</string>
+    <string name="fragment_food_storage_textView_addMealHeading">Neue Lebensmittel zum Speicher hinzufügen</string>
+    <string name="fragment_food_storage_textView_name">Name:</string>
+    <string name="fragment_food_storage_textView_calories">Kalorien:</string>
+    <string name="fragment_food_storage_button_add">Hinzufügen:</string>
+    <string name="fragment_food_storage_button_close">Schließen</string>
+    <string name="fragment_eat_textView_spinnerHeader">Lebensmittel aus dem Speicher auswählen</string>
+    <string name="fragment_eat_button_eatNowStorageMeal">ausgewähltes Lebensmittel essen</string>
+    <string name="fragment_eat_textView_newMealInputHeading">Neues Lebensmittel eingeben</string>
+    <string name="fragment_eat_textView_inputNameLabel">Name:</string>
+    <string name="fragment_eat_textView_inputCaloriesLabel">Kalorien</string>
+    <string name="fragment_eat_button_eatNow">Neues Lebensmittel essen</string>
+    <string name="fragment_eat_button_cancel">Abbrechen</string>
 </resources>

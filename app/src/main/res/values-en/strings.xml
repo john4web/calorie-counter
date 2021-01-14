@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="fragment_main_textView_heading">Daily requirement</string>
+    <string name="fragment_main_progressBar_calories_heading">Kilocalories</string>
+    <string name="fragment_main_progressBar_litres_heading">Litres</string>
+    <string name="fragment_main_textView_calorieDiffText">eaten:</string>
+    <string name="fragment_main_textView_litreDiffText">drank:</string>
+    <string name="fragment_main_button_eat">Eat</string>
+    <string name="fragment_main_button_drink">Drink</string>
+    <string name="fragment_main_textView_mealsHeading">Today\'s dishes</string>
+    <string name="fragment_main_textView_beveragesHeading">Today\'s drinks</string>
+    <string name="fragment_main_button_storedFood">Saved Meals</string>
+    <string name="fragment_main_button_settings">Settings</string>
+    <string name="fragment_settings_textView_heading">Settings</string>
+    <string name="fragment_settings_textView_calorieHeading">Maximum calories per day</string>
+    <string name="fragment_settings_textView_litresHeading">Maximum liters per day</string>
+    <string name="fragment_settings_button_save">Save</string>
+    <string name="fragment_settings_button_cancel">Cancel</string>
+    <string name="fragment_food_storage_textView_heading">Saved Meals</string>
+    <string name="fragment_food_storage_textView_addMealHeading">Add new Meals to the storage</string>
+    <string name="fragment_food_storage_textView_name">Name:</string>
+    <string name="fragment_food_storage_textView_calories">Calories:</string>
+    <string name="fragment_food_storage_button_add">Add:</string>
+    <string name="fragment_food_storage_button_close">Close</string>
+    <string name="fragment_eat_textView_spinnerHeader">Select a meal from the storage</string>
+    <string name="fragment_eat_button_eatNowStorageMeal">Eat selected meal</string>
+    <string name="fragment_eat_textView_newMealInputHeading">Enter new meal</string>
+    <string name="fragment_eat_textView_inputNameLabel">Name:</string>
+    <string name="fragment_eat_textView_inputCaloriesLabel">Calories:</string>
+    <string name="fragment_eat_button_eatNow">Eat new meal</string>
+    <string name="fragment_eat_button_cancel">Cancel</string>
+</resources>

@@ -5,7 +5,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.caloriecounter.R
-import com.example.caloriecounter.data.Meal
 import com.example.caloriecounter.data.StorageMeal
 import com.example.caloriecounter.databinding.MealRowBinding
 

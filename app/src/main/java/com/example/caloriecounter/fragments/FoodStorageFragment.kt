@@ -1,6 +1,5 @@
 package com.example.caloriecounter.fragments
 
-import android.animation.ObjectAnimator
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -11,8 +10,6 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.caloriecounter.ICommunicator
-import com.example.caloriecounter.data.Meal
-import com.example.caloriecounter.data.MealViewModel
 import com.example.caloriecounter.data.StorageMeal
 import com.example.caloriecounter.data.StorageMealViewModel
 import com.example.caloriecounter.databinding.FragmentFoodStorageBinding

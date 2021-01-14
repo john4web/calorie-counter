@@ -6,9 +6,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.caloriecounter.R
 import com.example.caloriecounter.data.Beverage
-import com.example.caloriecounter.data.Meal
 import com.example.caloriecounter.databinding.BeverageRowBinding
-import com.example.caloriecounter.databinding.MealRowBinding
 
 
 class BeverageListAdapter(val deleteBeverage: (Beverage) -> Unit): RecyclerView.Adapter<BeverageListAdapter.MyViewHolder>() {

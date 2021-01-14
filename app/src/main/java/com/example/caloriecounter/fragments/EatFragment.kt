@@ -6,13 +6,11 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
-import android.widget.Spinner
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.example.caloriecounter.ICommunicator
-import com.example.caloriecounter.R
 import com.example.caloriecounter.data.Meal
 import com.example.caloriecounter.data.MealViewModel
 import com.example.caloriecounter.data.StorageMeal
